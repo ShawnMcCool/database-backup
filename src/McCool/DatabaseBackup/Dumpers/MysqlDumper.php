@@ -38,7 +38,6 @@ class MysqlDumper implements DumperInterface
      *
      * @var string
      */
-
     protected $username;
 
     /**
