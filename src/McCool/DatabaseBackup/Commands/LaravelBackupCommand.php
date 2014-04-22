@@ -99,12 +99,13 @@ class LaravelBackupCommand extends Command
 
         // dumper config
         $config = [
-            'host'     => $conn['host'],
-            'port'     => 3306,
-            'username' => $conn['username'],
-            'password' => $conn['password'],
-            'database' => $conn['database'],
-            'filePath' => $filePath,
+            'host'       => $conn['host'],
+            'port'       => 3306,
+            'unixSocket' => $conn['unix_socket'],
+            'username'   => $conn['username'],
+            'password'   => $conn['password'],
+            'database'   => $conn['database'],
+            'filePath'   => $filePath,
         ];
 
         return $this->laravel->make('databasebackup.dumpers.mysqldumper', $config);
