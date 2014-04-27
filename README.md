@@ -1,3 +1,5 @@
+> This package is being made obsolete by [this backup-manager package](https://github.com/heybigname/backup-manager).
+
 Database Backup
 ===============
 
