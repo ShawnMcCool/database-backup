@@ -1,4 +1,4 @@
-> This package is being made obsolete by [this backup-manager package](https://github.com/heybigname/backup-manager).
+> The [backup-manager package](https://github.com/heybigname/backup-manager) is being developed to replace this one.
 
 Database Backup
 ===============
@@ -32,7 +32,7 @@ Non-Laravel users can look at the Usage section below.
 1. add to composer.json
 
     ```JSON
-    "mccool/database-backup": "dev-master"
+    "mccool/database-backup": "1.0.1"
     ```
 2. install dependency
 
