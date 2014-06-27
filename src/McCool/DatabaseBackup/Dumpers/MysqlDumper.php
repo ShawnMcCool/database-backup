@@ -127,14 +127,20 @@ class MysqlDumper implements DumperInterface
      */
     protected function getCommand()
     {
-        return sprintf('mysqldump --host=%s --port=%s --protocol=socket -S %s --user=%s --password=%s %s > %s',
+        $command = sprintf('mysqldump --host=%s --port=%s --user=%s --password=%s %s > %s',
             escapeshellarg($this->host),
             escapeshellarg($this->port),
-            escapeshellarg($this->unixSocket),
             escapeshellarg($this->username),
             escapeshellarg($this->password),
             escapeshellarg($this->database),
             escapeshellarg($this->destinationPath)
         );
+        
+        if (isset($this->unixSocket)) {
+            $command .= " --protocol=socket -S " . escapeshellarg($this->unixSocket);
+        }
+        
+        return $command;
+
     }
 }
