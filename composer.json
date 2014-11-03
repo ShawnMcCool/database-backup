@@ -1,7 +1,7 @@
 {
     "name": "mccool/database-backup",
     "description": "A framework-agnostic driver-based database backup package with a Laravel add-on.",
-    "license": "MIT"
+    "license": "MIT",
     "authors": [{
         "name": "Shawn McCool",
         "email": "shawn@heybigname.com"
