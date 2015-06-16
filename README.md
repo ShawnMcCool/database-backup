@@ -1,4 +1,4 @@
-> The [backup-manager package](https://github.com/heybigname/backup-manager) is being developed to replace this one.
+> This package is abandoned. This [Backup Manager](https://github.com/backup-manager) has fully replaced it.
 
 Database Backup
 ===============
