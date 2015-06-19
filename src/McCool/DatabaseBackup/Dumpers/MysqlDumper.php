@@ -27,6 +27,13 @@ class MysqlDumper implements DumperInterface
     protected $port;
 
     /**
+     * The database socket.
+     *
+     * @var string
+     */
+    protected $unixSocket;
+
+    /**
      * The database username.
      *
      * @var string
@@ -60,16 +67,18 @@ class MysqlDumper implements DumperInterface
      * @param  \McCool\DatabaseBackup\Processors\ProcessorInterface
      * @param  string  $host
      * @param  string  $port
+     * @param  string  $unixSocket
      * @param  string  $username
      * @param  string  $database
      * @param  string  $destinationPath
      * @return self
      */
-    public function __construct(ProcessorInterface $processor, $host, $port, $username, $password, $database, $destinationPath)
+    public function __construct(ProcessorInterface $processor, $host, $port, $unixSocket, $username, $password, $database, $destinationPath)
     {
         $this->processor       = $processor;
         $this->host            = $host;
         $this->port            = $port;
+        $this->unixSocket      = $unixSocket;
         $this->username        = $username;
         $this->password        = $password;
         $this->database        = $database;
@@ -118,7 +127,7 @@ class MysqlDumper implements DumperInterface
      */
     protected function getCommand()
     {
-        return sprintf('mysqldump --host=%s --port=%s --user=%s --password=%s %s > %s',
+        $command = sprintf('mysqldump --host=%s --port=%s --user=%s --password=%s %s > %s',
             escapeshellarg($this->host),
             escapeshellarg($this->port),
             escapeshellarg($this->username),
@@ -126,5 +135,12 @@ class MysqlDumper implements DumperInterface
             escapeshellarg($this->database),
             escapeshellarg($this->destinationPath)
         );
+        
+        if (isset($this->unixSocket)) {
+            $command .= " --protocol=socket -S " . escapeshellarg($this->unixSocket);
+        }
+        
+        return $command;
+
     }
 }

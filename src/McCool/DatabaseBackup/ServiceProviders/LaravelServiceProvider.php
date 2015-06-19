@@ -57,7 +57,7 @@ class LaravelServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('databasebackup.dumpers.mysqldumper', function($app, $params) {
-            return new MysqlDumper($app['databasebackup.processors.shellprocessor'], $params['host'], $params['port'], $params['username'], $params['password'], $params['database'], $params['filePath']);
+            return new MysqlDumper($app['databasebackup.processors.shellprocessor'], $params['host'], $params['port'], $params['unixSocket'], $params['username'], $params['password'], $params['database'], $params['filePath']);
         });
     }
 }
