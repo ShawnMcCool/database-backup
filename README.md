@@ -42,7 +42,7 @@ Non-Laravel users can look at the Usage section below.
 3. install configuration file
 
     ```SHELL
-    php artisan config:publish mccool/database-backup
+    php artisan vendor:publish
     ```
 4. add service provider to config/app.php
 
