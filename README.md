@@ -84,31 +84,26 @@ php artisan db:backup
 ```SHELL
 php artisan db:backup --local-path=backups
 ```
-
 **Gzip the database.**
 
 ```SHELL
 php artisan db:backup --gzip
 ```
-
 **Choose a database to dump other than the default (names are configured in Laravel's config/database.php).**
 
 ```SHELL
 php artisan db:backup --database=otherdatabaseconnection
 ```
-
 **Choose a specific filename other than the default (default is 'Y-m-d_H-i-s' ). Note, do not include the file extension .sql, we will do that for you**
 
 ```SHELL
 php artisan db:backup --filename=my_project_backup
 ```
-
 **Upload the backup to S3**
 
 ```SHELL
 php artisan db:backup --s3-bucket=whatever --s3-path=/this/is/optional/
 ```
-
 **Cleanup file when we're done**
 
 ```SHELL
@@ -152,7 +147,6 @@ $backup->setStorer($storer);
 $backup->backup();
 $backup->cleanup();
 ```
-
 # License
 
 MIT
